@@ -18,22 +18,22 @@ public class StudentController {
 @Autowired
 private StudentService studentService;
 // INSERT student
-@PostMapping(&quot;/postStudent&quot;)
+@PostMapping("/postStudent")
 public Student postStd(@RequestBody Student st) {
 return studentService.insertStudent(st);
 }
 // GET all students
-@GetMapping(&quot;/getAll&quot;)
+@GetMapping("/getAll")
 public List&lt;Student&gt; getAll() {
 return studentService.getAllStudents();
 }
 // GET student by ID
-@GetMapping(&quot;/get/{id}&quot;)
+@GetMapping("/get/{id}")
 public Optional&lt;Student&gt; get(@PathVariable Long id) {
 return studentService.getOneStudent(id);
 }
 // UPDATE student
-@PutMapping(&quot;/update/{id}&quot;)
+@PutMapping("/update/{id}")
 public String update(@PathVariable Long id, @RequestBody Student
 newStudent) {
 Optional&lt;Student&gt; student = studentService.getOneStudent(id);
@@ -45,7 +45,7 @@ return &quot;Updated Success&quot;;
 return &quot;Id not found&quot;;
 }
 // DELETE student
-@DeleteMapping(&quot;/del/{id}&quot;)
+@DeleteMapping("/del/{id}")
 public String deleteStudent(@PathVariable Long id) {
 Optional&lt;Student&gt; student = studentService.getOneStudent(id);
 if (student.isPresent()) {
